@@ -1,0 +1,15 @@
+{
+  "name": "Emoji Generator Old Domain Site",
+  "description": "",
+  "repository": "",
+  "keywords": ["python", "aiohttp", "asyncio"],
+  "buildpacks": [
+    {"url": "https://github.com/heroku/heroku-buildpack-multi"}
+  ],
+  "env": {
+    "ROOT_LOG_LEVEL": {
+      "description": "Application log level. One of (`CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`)",
+      "value": "INFO"
+    }
+  }
+}
