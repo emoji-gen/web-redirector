@@ -1,0 +1,28 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/workspace
+    docker:
+      - image: python:3.5.6
+
+    steps:
+      - checkout
+      - restore_cache:
+          key: emoji-gen/web-redirect/{{ arch }}/{{ checksum "requirements.txt" }}
+      - run:
+          name: Install dependencies
+          command: pip install -r requirements.txt
+      - run:
+          name: Test
+          command: python -m py_compile app.py
+      - save_cache:
+          key: emoji-gen/web-redirect/{{ arch }}/{{ checksum "requirements.txt" }}
+          paths:
+            - ~/.cache/pip/
+      - deploy:
+          name: Deploy Master to Heroku
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              ./.circleci/setup-heroku.sh
+              git push -f heroku master
+            fi
