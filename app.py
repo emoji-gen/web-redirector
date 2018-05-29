@@ -5,7 +5,7 @@ from aiohttp.web import Application, run_app
 from aiohttp.web_exceptions import HTTPMovedPermanently
 
 
-def redirect(request):
+async def redirect(request):
     return HTTPMovedPermanently(
         'https://emoji-gen.ninja/',
         headers={
