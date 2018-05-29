@@ -10,6 +10,9 @@ def redirect(request):
         'https://emoji-gen.ninja/',
         headers={
             'Cache-Control': 'public, max-age=600', # 10 min
+            'X-XSS-Protection': '1; mode=block',
+            'X-Frame-Options': 'DENY',
+            'X-Content-Type-Options': 'nosniff',
         },
     )
 
