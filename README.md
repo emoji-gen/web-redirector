@@ -15,6 +15,6 @@ $ pip install -r requirements.txt
 $ python app.py
 ```
 
-## LICENSE
+## License
 
 MIT &copy; [Emoji Generator](https://emoji-gen.ninja)
