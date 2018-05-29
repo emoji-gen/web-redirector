@@ -22,4 +22,4 @@ app.router.add_get('/{path:.*}', redirect)
 
 
 if __name__ == '__main__':
-    run_app(app)
+    run_app(app, host='0.0.0.0', port=5001)
