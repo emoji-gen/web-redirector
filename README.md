@@ -16,6 +16,21 @@ $ pip install -r requirements.txt
 $ python app.py
 ```
 
+## Publish
+### Requirements
+
+- [Heroku account](https://heroku.com/)
+- [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
+
+### Commands
+
+```
+$ heroku create
+$ heroku buildpacks:set https://github.com/heroku/heroku-buildpack-multi.git
+$ heroku config:set ROOT_LOG_LEVEL=INFO
+$ git push heroku master
+```
+
 ## License
 
 MIT &copy; [Emoji Generator](https://emoji-gen.ninja)
