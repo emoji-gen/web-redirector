@@ -24,8 +24,9 @@ async def healthcheck(request):
 
 
 async def redirect(request):
+    path = request.match_info['path']
     return HTTPMovedPermanently(
-        'https://emoji-gen.ninja/',
+        'https://emoji-gen.ninja/{}'.format(path),
         headers={
             'Cache-Control': 'public, max-age=600', # 10 min
             **security_headers,
