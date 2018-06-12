@@ -5,3 +5,5 @@ __pycache__/
 # virtualenv
 venv
 
+# pytest
+.pytest_cache/

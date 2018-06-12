@@ -11,10 +11,14 @@ jobs:
           key: emoji-gen/web-redirect/{{ arch }}/{{ checksum "requirements.txt" }}
       - run:
           name: Install dependencies
-          command: pip install -r requirements.txt
+          command: |
+            pip install -r requirements.txt
+            pip install -r requirements-dev.txt
       - run:
           name: Test
-          command: python -m py_compile app.py
+          command: |
+            python -m py_compile app.py
+            python -m pytest
       - save_cache:
           key: emoji-gen/web-redirect/{{ arch }}/{{ checksum "requirements.txt" }}
           paths:
