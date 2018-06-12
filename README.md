@@ -23,6 +23,13 @@ $ pip install -r requirements.txt
 $ python app.py
 ```
 
+## Test
+
+```
+$ pip install -r requirements-dev.txt
+$ pytest
+```
+
 ## Publish
 ### Requirements
 
