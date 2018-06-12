@@ -12,6 +12,10 @@
 
 - Python `$(cat .python-version)`
 
+## Libraries
+
+- [aiohttp](https://github.com/aio-libs/aiohttp) - Server-side framework
+
 ## Getting started
 
 ```
