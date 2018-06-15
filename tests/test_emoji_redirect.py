@@ -1,10 +1,10 @@
 import pytest
 
-from emoji_redirect import app_provider
+from emoji_redirect import provide_app
 
 
 async def test_healthcheck(test_client):
-    app = app_provider()
+    app = provide_app()
     client = await test_client(app)
     resp = await client.get('/healthcheck')
     assert resp.status == 200
@@ -14,28 +14,28 @@ async def test_healthcheck(test_client):
 
 
 async def test_favicon(test_client):
-    app = app_provider()
+    app = provide_app()
     client = await test_client(app)
     resp = await client.get('/favicon.ico')
     assert resp.status == 404
 
 
 async def test_robots(test_client):
-    app = app_provider()
+    app = provide_app()
     client = await test_client(app)
     resp = await client.get('/robots.txt')
     assert resp.status == 404
 
 
 async def test_sitemap(test_client):
-    app = app_provider()
+    app = provide_app()
     client = await test_client(app)
     resp = await client.get('/sitemap.xml')
     assert resp.status == 404
 
 
 async def test_redirect_root(test_client):
-    app = app_provider()
+    app = provide_app()
     client = await test_client(app)
     resp = await client.get('/', allow_redirects=False)
     assert resp.status == 301
@@ -44,7 +44,7 @@ async def test_redirect_root(test_client):
 
 
 async def test_redirect_path(test_client):
-    app = app_provider()
+    app = provide_app()
     client = await test_client(app)
     resp = await client.get('/foo/bar', allow_redirects=False)
     assert resp.status == 301
