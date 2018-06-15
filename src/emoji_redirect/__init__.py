@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-from aiohttp.web import Application, Response, run_app
+from aiohttp.web import Application, Response
 from aiohttp.web_exceptions import HTTPMovedPermanently, HTTPNotFound
 
 
@@ -39,7 +39,7 @@ async def not_found(request):
     return HTTPNotFound()
 
 
-def app_provider():
+def provide_app():
     app = Application()
     app.router.add_get('/healthcheck', healthcheck)
     app.router.add_get('/favicon.ico', not_found)
