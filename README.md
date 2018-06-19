@@ -6,7 +6,8 @@
 
 :boat: The web application to redirect from old domain
 
-![](assets/resized.jpg)
+![](assets/resized.jpg)<br>
+<sub><sup>&copy; tsuneo/123RF.COM</sup><sub>
 <br>
 <br>
 
