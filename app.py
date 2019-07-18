@@ -12,8 +12,7 @@ sys.path.append(src_path)
 
 # ------------------------------------------------------------------------------
 
-from emoji_redirect import provide_app
-app = provide_app()
+from server import app_factory
 
 if __name__ == '__main__':
-    run_app(app, host='0.0.0.0', port=5001)
+    run_app(app_factory(), host='0.0.0.0', port=5000)
