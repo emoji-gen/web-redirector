@@ -33,7 +33,7 @@ async def not_found(request):
 
 # ---------------------------------------------------------
 
-def app_factory():
+async def app_factory():
     app = Application()
     app.router.add_get('/health', health)
     app.router.add_get('/healthcheck', health)

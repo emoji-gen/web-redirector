@@ -5,8 +5,9 @@ from server import app_factory
 
 @pytest.fixture
 def cli(loop, aiohttp_client):
-    app = app_factory()
-    return loop.run_until_complete(aiohttp_client(app))
+    app = loop.run_until_complete(app_factory())
+    cli = loop.run_until_complete(aiohttp_client(app))
+    return cli
 
 
 async def test_healthcheck(cli):
