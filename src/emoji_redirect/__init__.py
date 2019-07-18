@@ -16,7 +16,7 @@ async def healthcheck(request):
     return Response(
         body='OK',
         headers={
-            'Cache-Control': 'private, no-store, no-cache, must-revalidate',
+            'Cache-Control': 'private, no-cache, no-store, must-revalidate',
             **security_headers,
         },
         content_type='text/plain',
@@ -29,7 +29,7 @@ async def redirect(request):
     return HTTPMovedPermanently(
         'https://emoji-gen.ninja/{}'.format(path),
         headers={
-            'Cache-Control': 'public, max-age=600', # 10 min
+            'Cache-Control': 'private, no-cache, no-store, must-revalidate',
             **security_headers,
         },
     )
