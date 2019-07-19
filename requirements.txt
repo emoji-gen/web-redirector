@@ -3,7 +3,7 @@ aiohttp==3.5.4
 async-timeout==3.0.1
 attrs==19.1.0
 cchardet==2.1.4
-cffi==1.12.2
+cffi==1.12.3
 chardet==3.0.4
 gunicorn==19.9.0
 idna==2.8
