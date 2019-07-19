@@ -23,6 +23,13 @@ jobs:
           key: emoji-gen/web-redirect/{{ arch }}/{{ checksum "requirements.txt" }}
           paths:
             - ~/.cache/pip/
+      - run:
+          name: Notify deploy started
+          command: |
+            if [ "$CIRCLE_BRANCH" = 'master' ]; then
+              pip3 install -q slackweb
+              python3 scripts/notify.py started
+            fi
       - deploy:
           name: Deploy Master to Heroku
           command: |
