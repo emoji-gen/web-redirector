@@ -32,3 +32,19 @@ jobs:
               retry -- heroku git:remote --app eg-web-redirect
               retry -- git push -f heroku master
             fi
+      - run:
+          name: Notify deploy successful
+          command: |
+            if [ "$CIRCLE_BRANCH" = 'master' ]; then
+              pip3 install -q slackweb
+              python3 scripts/notify.py successful
+            fi
+     - run:
+          name: Notify deploy failed
+          command: |
+            if [ "$CIRCLE_BRANCH" = 'master' ]; then
+              pip3 install -q slackweb
+              python3 common/script/notify.py failed
+            fi
+          when: on_fail
+
