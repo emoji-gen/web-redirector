@@ -11,7 +11,7 @@ def cli(loop, aiohttp_client):
 
 
 async def test_healthcheck(cli):
-    resp = await cli.get('/healthcheck')
+    resp = await cli.get('/health')
     assert resp.status == 200
     assert resp.headers['Content-Type'] == 'text/plain; charset=utf-8'
     assert resp.headers['Cache-Control'] == 'private, no-cache, no-store, must-revalidate'

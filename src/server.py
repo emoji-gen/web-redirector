@@ -36,7 +36,6 @@ async def not_found(request):
 async def app_factory():
     app = Application()
     app.router.add_get('/health', health)
-    app.router.add_get('/healthcheck', health)
     app.router.add_get('/favicon.ico', not_found)
     app.router.add_get('/robots.txt', not_found)
     app.router.add_get('/sitemap.xml', not_found)
