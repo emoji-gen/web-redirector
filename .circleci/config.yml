@@ -39,7 +39,7 @@ jobs:
               pip3 install -q slackweb
               python3 scripts/notify.py successful
             fi
-     - run:
+      - run:
           name: Notify deploy failed
           command: |
             if [ "$CIRCLE_BRANCH" = 'master' ]; then
