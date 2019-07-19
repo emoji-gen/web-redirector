@@ -2,7 +2,7 @@
 
 set -eu -o pipefail
 
-curl https://cli-assets.heroku.com/install.sh | sh
+curl -s https://cli-assets.heroku.com/install.sh | sh
 
 cat >~/.netrc <<EOF
 machine api.heroku.com
