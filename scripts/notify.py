@@ -7,7 +7,6 @@ import slackweb
 username = 'CircleCI'
 icon_url = 'https://i.imgur.com/FLjAA35.png'
 author_name = 'web-redirect'
-author_icon = 'https://i.imgur.com/zPilq59l.png'
 
 
 def main():
@@ -34,7 +33,6 @@ def _notify(text, color):
         'color': color,
         'text': text,
         'author_name': author_name,
-        'author_icon': author_icon,
     }
     slack.notify(
         username=username,
