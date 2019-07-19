@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-from aiohttp.web import Application, Response, \
-    HTTPMovedPermanently, HTTPNotFound
+from aiohttp.web import \
+    Application, Response, HTTPMovedPermanently, HTTPNotFound
 
 # ---------------------------------------------------------
 
