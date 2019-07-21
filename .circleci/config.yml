@@ -10,15 +10,19 @@ jobs:
       - restore_cache:
           key: emoji-gen/web-redirect/{{ arch }}/{{ checksum "requirements.txt" }}
       - run:
+          name: Install retry command
+          command: |
+              ./.circleci/setup-retry.sh
+      - run:
           name: Install dependencies
           command: |
-            pip install -r requirements.txt
-            pip install -r requirements-dev.txt
+            retry -- pip install -r requirements.txt
+            retry -- pip install -r requirements-dev.txt
       - run:
           name: Test
           command: |
             python -m py_compile app.py
-            python -m pytest
+            retry -- python -m pytest
       - save_cache:
           key: emoji-gen/web-redirect/{{ arch }}/{{ checksum "requirements.txt" }}
           paths:
@@ -27,14 +31,13 @@ jobs:
           name: Notify deploy started
           command: |
             if [ "$CIRCLE_BRANCH" = 'master' ]; then
-              pip3 install -q slackweb
+              retry -- pip3 install -q slackweb
               python3 scripts/notify.py started
             fi
       - deploy:
           name: Deploy Master to Heroku
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              ./.circleci/setup-retry.sh
               ./.circleci/setup-heroku.sh
               retry -- heroku git:remote --app eg-web-redirect
               retry -- git push -f heroku master
@@ -43,14 +46,14 @@ jobs:
           name: Notify deploy successful
           command: |
             if [ "$CIRCLE_BRANCH" = 'master' ]; then
-              pip3 install -q slackweb
+              retry -- pip3 install -q slackweb
               python3 scripts/notify.py successful
             fi
       - run:
           name: Notify deploy failed
           command: |
             if [ "$CIRCLE_BRANCH" = 'master' ]; then
-              pip3 install -q slackweb
+              retry -- pip3 install -q slackweb
               python3 scripts/notify.py failed
             fi
           when: on_fail
