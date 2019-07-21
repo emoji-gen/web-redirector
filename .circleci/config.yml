@@ -8,7 +8,9 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: emoji-gen/web-redirect/{{ arch }}/{{ checksum "requirements.txt" }}
+          keys:
+            - v1-{{ arch }}-{{ checksum "requirements.txt" }}
+            - v1-{{ arch }}
       - run:
           name: Install retry command
           command: |
@@ -24,7 +26,7 @@ jobs:
             python -m py_compile app.py
             retry -- python -m pytest
       - save_cache:
-          key: emoji-gen/web-redirect/{{ arch }}/{{ checksum "requirements.txt" }}
+          key: v1-{{ arch }}-{{ checksum "requirements.txt" }}
           paths:
             - ~/.cache/pip/
       - run:
