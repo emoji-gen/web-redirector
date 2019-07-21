@@ -44,7 +44,7 @@ $ pytest
 ### Commands
 
 ```
-$ heroku create
+$ heroku create your-app-name
 $ heroku config:set ROOT_LOG_LEVEL=INFO
 $ git push heroku master
 ```
