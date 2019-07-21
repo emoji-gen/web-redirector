@@ -5,7 +5,7 @@ attrs==19.1.0
 chardet==3.0.4
 idna==2.8
 importlib-metadata==0.18
-more-itertools==7.1.0
+more-itertools==7.2.0
 multidict==4.5.2
 packaging==19.0
 pluggy==0.12.0
