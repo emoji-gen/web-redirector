@@ -2,7 +2,7 @@
 [![CircleCI](https://circleci.com/gh/emoji-gen/web-redirect/tree/master.svg?style=shield)](https://circleci.com/gh/emoji-gen/web-redirect/tree/master)
 [![Requirements Status](https://requires.io/github/emoji-gen/web-redirect/requirements.svg?branch=master)](https://requires.io/github/emoji-gen/web-redirect/requirements/?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/56377d1a156e44fc93d98dbae392dad4)](https://www.codacy.com/app/pinemz/web-redirect?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=emoji-gen/web-redirect&amp;utm_campaign=Badge_Grade)
-[![Osushi](https://img.shields.io/badge/donate-osushi-EA2F57.svg)](https://osushi.love/intent/post/9ad90add99954e62ac79251606c10eec)
+[![License](https://img.shields.io/github/license/emoji-gen/web-redirect.svg)](https://opensource.org/licenses/MIT)
 
 :boat: The web application to redirect from old domain
 
