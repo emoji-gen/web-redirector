@@ -45,7 +45,7 @@ $ pytest
 
 ```
 $ heroku create your-app-name
-$ heroku config:set ROOT_LOG_LEVEL=INFO
+$ heroku buildpacks:add https://github.com/heroku/heroku-buildpack-multi.git
 $ git push heroku master
 ```
 
