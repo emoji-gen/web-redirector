@@ -1,11 +1,11 @@
 import pytest
 
-from server import app_factory
+from pkgs.server import create_app
 
 
 @pytest.fixture
 def cli(loop, aiohttp_client):
-    app = loop.run_until_complete(app_factory())
+    app = loop.run_until_complete(create_app())
     cli = loop.run_until_complete(aiohttp_client(app))
     return cli
 
