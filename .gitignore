@@ -11,3 +11,6 @@ venv-*
 
 # PyCharm
 .idea/
+
+# mypy
+.mypy_cache/

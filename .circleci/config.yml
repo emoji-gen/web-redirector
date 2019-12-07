@@ -24,6 +24,7 @@ jobs:
           name: Test
           command: |
             python -m py_compile app.py
+            mypy app.py
             retry -- python -m pytest
       - save_cache:
           key: v1-{{ arch }}-{{ checksum "requirements.txt" }}
