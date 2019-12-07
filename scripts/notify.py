@@ -6,7 +6,7 @@ import slackweb
 
 username = 'CircleCI'
 icon_url = 'https://i.imgur.com/FLjAA35.png'
-author_name = 'web-redirect'
+author_name = 'web-redirector'
 
 
 def main():
