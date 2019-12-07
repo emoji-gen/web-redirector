@@ -5,7 +5,6 @@ from typing import List
 
 from aiohttp import web
 from aiohttp.web import (
-    Application,
     HTTPMovedPermanently,
     HTTPNotFound,
     Response,
@@ -38,4 +37,3 @@ class Controller:
 
     async def not_found(self, request):
         return HTTPNotFound()
-
