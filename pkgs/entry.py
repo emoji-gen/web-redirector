@@ -5,6 +5,7 @@ import os
 
 import aioredis
 from aiohttp.web import Application
+from aioredis import Redis
 
 from pkgs.controllers import Controller
 from pkgs.middlewares import add_security_headers
@@ -21,4 +22,12 @@ async def create_app() -> Application:
     access_log_repository = AccessCountRepository(redis)
     controller = Controller(access_log_repository)
     app.add_routes(controller.routes())
+    app.on_cleanup.append(on_cleanup_factory(redis))
     return app
+
+
+def on_cleanup_factory(redis: Redis):
+    async def on_cleanup(app):
+        redis.close()
+        await redis.wait_closed()
+    return on_cleanup
