@@ -45,6 +45,7 @@ $ pytest
 
 ```
 $ heroku create your-app-name
+$ heroku addons:create heroku-redis:hobby-dev
 $ heroku buildpacks:add https://github.com/heroku/heroku-buildpack-multi.git
 $ git push heroku master
 ```
