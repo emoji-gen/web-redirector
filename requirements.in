@@ -1,4 +1,5 @@
 aiodns
 aiohttp
+aioredis
 cchardet
 gunicorn
