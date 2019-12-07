@@ -41,7 +41,7 @@ jobs:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               ./.circleci/setup-heroku.sh
-              retry -- heroku git:remote --app eg-web-redirect
+              retry -- heroku git:remote --app "$HEROKU_APP"
               retry -- git push -f heroku master
             fi
       - run:
