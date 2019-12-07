@@ -27,7 +27,7 @@ async def create_app() -> Application:
 
 
 def on_cleanup_factory(redis: Redis):
-    async def on_cleanup(app):
+    async def on_cleanup(_: Application):
         redis.close()
         await redis.wait_closed()
     return on_cleanup
