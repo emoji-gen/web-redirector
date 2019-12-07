@@ -1,6 +1,6 @@
 import pytest
 
-from pkgs.server import create_app
+from pkgs.entry import create_app
 
 
 @pytest.fixture
