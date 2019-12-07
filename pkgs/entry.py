@@ -3,12 +3,11 @@
 
 from aiohttp.web import Application
 
-from pkgs.controllers import Controller
+from pkgs.controller import routes
 from pkgs.middlewares import add_security_headers
 
 
-async def create_app():
+async def create_app() -> Application:
     app = Application(middlewares=[add_security_headers])
-    controller = Controller()
-    app.add_routes(controller.routes())
+    app.add_routes(routes())
     return app

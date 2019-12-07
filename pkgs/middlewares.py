@@ -1,7 +1,13 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-from aiohttp.web import middleware
+from typing import Callable
+
+from aiohttp.web import (
+    middleware,
+    Request,
+    Response,
+)
 
 SECURITY_HEADERS = {
     'Cache-Control': 'private, no-cache, no-store, must-revalidate',
@@ -13,7 +19,7 @@ SECURITY_HEADERS = {
 
 
 @middleware
-async def add_security_headers(request, handler):
-    response = await handler(request)
+async def add_security_headers(request: Request, handler: Callable) -> Response:
+    response: Response = await handler(request)
     response.headers.extend(SECURITY_HEADERS)
     return response
