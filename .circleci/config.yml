@@ -4,6 +4,7 @@ jobs:
     working_directory: ~/workspace
     docker:
       - image: python:3.8.0
+      - image: redis:5.0.7
 
     steps:
       - checkout
