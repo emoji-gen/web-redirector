@@ -13,7 +13,7 @@ from aiohttp.web import (
 )
 
 
-class Controller():
+class Controller:
     def routes(self) -> List[RouteDef]:
         return [
             web.get('/health', self.health),

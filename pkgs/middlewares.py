@@ -11,6 +11,7 @@ SECURITY_HEADERS = {
     'X-Content-Type-Options': 'nosniff',
 }
 
+
 @middleware
 async def add_security_headers(request, handler):
     response = await handler(request)
