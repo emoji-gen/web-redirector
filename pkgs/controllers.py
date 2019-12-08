@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
+from datetime import datetime
 from typing import List
 
 from aiohttp import web
@@ -12,12 +13,12 @@ from aiohttp.web import (
     RouteDef,
 )
 
-from pkgs.repositories import AccessCountRepository
+from pkgs.repositories import LastAccessTimeRepository
 
 
 class Controller:
-    def __init__(self, access_log_repository: AccessCountRepository):
-        self._access_log_repository = access_log_repository
+    def __init__(self, last_access_time_repository: LastAccessTimeRepository):
+        self._last_access_time_repository = last_access_time_repository
 
     def routes(self) -> List[RouteDef]:
         return [
@@ -36,7 +37,8 @@ class Controller:
         )
 
     async def redirect(self, request: Request) -> Response:
-        await self._access_log_repository.increment()
+        now = datetime.now()
+        await self._last_access_time_repository.set(now)
 
         path = request.match_info['path']
         return HTTPMovedPermanently(

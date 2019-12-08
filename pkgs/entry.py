@@ -9,7 +9,10 @@ from aioredis import Redis
 
 from pkgs.controllers import Controller
 from pkgs.middlewares import add_security_headers
-from pkgs.repositories import AccessCountRepository
+from pkgs.jobs import MetricJob
+from pkgs.repositories import LastAccessTimeRepository
+
+METRIC_JOB_KEY = 'metric_job'
 
 
 async def create_app() -> Application:
@@ -19,8 +22,12 @@ async def create_app() -> Application:
     else:
         redis = await aioredis.create_redis_pool('redis://localhost')
 
-    access_log_repository = AccessCountRepository(redis)
-    controller = Controller(access_log_repository)
+    last_access_time_repository = LastAccessTimeRepository(redis)
+    controller = Controller(last_access_time_repository)
+    if 'PYTEST_CURRENT_TEST' not in os.environ:
+        metric_job = MetricJob(last_access_time_repository)
+        app[METRIC_JOB_KEY] = metric_job
+
     app.add_routes(controller.routes())
     app.on_cleanup.append(on_cleanup_factory(redis))
     return app
@@ -30,4 +37,5 @@ def on_cleanup_factory(redis: Redis):
     async def on_cleanup(_: Application):
         redis.close()
         await redis.wait_closed()
+
     return on_cleanup
