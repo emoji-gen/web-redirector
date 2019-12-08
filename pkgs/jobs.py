@@ -37,5 +37,4 @@ class MetricJob:
                 'time': now_millis // 1000,
                 'value': (now_millis - int(last_access_time.timestamp() * 1000)) // 1000,
             }
-            print(metric_value)
             await session.post(URL, json=[metric_value], headers=headers)
