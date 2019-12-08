@@ -11,7 +11,7 @@ from pkgs.repositories import LastAccessTimeRepository
 
 SERVICE_NAME = 'emoji-generator'
 URL = 'https://api.mackerelio.com/api/v0/services/{}/tsdb'.format(SERVICE_NAME)
-METRIC_NAME = 'web_redirector.elapsed_seconds_since_last_access'
+METRIC_NAME = 'elapsed_seconds.last_redirect'
 API_KEY = os.getenv('MACKEREL_API_KEY')
 
 
