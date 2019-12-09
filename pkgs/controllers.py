@@ -33,7 +33,10 @@ class Controller:
         return Response(
             body='OK',
             content_type='text/plain',
-            charset='utf-8'
+            charset='utf-8',
+            headers={
+                'Cache-Control': 'private, no-cache, no-store, must-revalidate',
+            }
         )
 
     async def redirect(self, request: Request) -> Response:
@@ -42,8 +45,15 @@ class Controller:
 
         path = request.match_info['path']
         return HTTPMovedPermanently(
-            'https://emoji-gen.ninja/{}'.format(path)
+            'https://emoji-gen.ninja/{}'.format(path),
+            headers={
+                'Cache-Control': 'public, max-age=10',
+            }
         )
 
     async def not_found(self, _: Request) -> Response:
-        return HTTPNotFound()
+        return HTTPNotFound(
+            headers={
+                'Cache-Control': 'public, max-age=10',
+            }
+        )

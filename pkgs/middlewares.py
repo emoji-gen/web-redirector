@@ -10,7 +10,6 @@ from aiohttp.web import (
 )
 
 SECURITY_HEADERS = {
-    'Cache-Control': 'private, no-cache, no-store, must-revalidate',
     'Server': 'nginx',
     'X-XSS-Protection': '1; mode=block',
     'X-Frame-Options': 'DENY',

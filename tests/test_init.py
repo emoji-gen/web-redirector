@@ -37,11 +37,11 @@ async def test_redirect_root(cli):
     resp = await cli.get('/', allow_redirects=False)
     assert resp.status == 301
     assert resp.headers['Location'] == 'https://emoji-gen.ninja/'
-    assert resp.headers['Cache-Control'] == 'private, no-cache, no-store, must-revalidate'
+    assert resp.headers['Cache-Control'] == 'public, max-age=10'
 
 
 async def test_redirect_path(cli):
     resp = await cli.get('/foo/bar', allow_redirects=False)
     assert resp.status == 301
     assert resp.headers['Location'] == 'https://emoji-gen.ninja/foo/bar'
-    assert resp.headers['Cache-Control'] == 'private, no-cache, no-store, must-revalidate'
+    assert resp.headers['Cache-Control'] == 'public, max-age=10'
