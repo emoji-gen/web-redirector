@@ -24,8 +24,9 @@ async def create_app() -> Application:
 
     last_access_time_repository = LastAccessTimeRepository(redis)
     controller = Controller(last_access_time_repository)
-    if 'PYTEST_CURRENT_TEST' not in os.environ:
-        metric_job = MetricJob(last_access_time_repository)
+    if 'MACKEREL_API_KEY' in os.environ:
+        api_key = os.environ['MACKEREL_API_KEY']
+        metric_job = MetricJob(last_access_time_repository, api_key)
         app[METRIC_JOB_KEY] = metric_job
 
     app.add_routes(controller.routes())
