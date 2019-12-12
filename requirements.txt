@@ -11,7 +11,7 @@ croniter==0.3.30
 gunicorn==20.0.4
 hiredis==1.0.1
 idna==2.8
-multidict==4.6.1
+multidict==4.7.1
 pycares==3.0.0
 pycparser==2.19
 python-dateutil==2.8.1
