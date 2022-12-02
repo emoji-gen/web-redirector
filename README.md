@@ -1,7 +1,5 @@
 ## 301 Moved Permanently
 [![CircleCI](https://circleci.com/gh/emoji-gen/web-redirector/tree/master.svg?style=shield)](https://circleci.com/gh/emoji-gen/web-redirector/tree/master)
-[![Requirements Status](https://requires.io/github/emoji-gen/web-redirector/requirements.svg?branch=master)](https://requires.io/github/emoji-gen/web-redirector/requirements/?branch=master)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/56377d1a156e44fc93d98dbae392dad4)](https://www.codacy.com/app/pinemz/web-redirect?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=emoji-gen/web-redirect&amp;utm_campaign=Badge_Grade)
 [![License](https://img.shields.io/github/license/emoji-gen/web-redirect.svg)](https://opensource.org/licenses/MIT)
 
 :boat: The web application to redirect from old domain
